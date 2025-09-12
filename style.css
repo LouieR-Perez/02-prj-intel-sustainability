@@ -42,13 +42,14 @@ header p {
 }
 
 /* Timeline Cards Section: horizontal scroll for cards, centered, max 3 visible */
+/* Add extra left and right padding so the first and last card are not flush with the edges */
 section {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   overflow-x: auto;
   gap: 30px;
-  padding: 40px 0 20px 0;      /* No side padding so cards aren't cut off */
+  padding: 40px 30px 20px 30px; /* 30px padding on both left and right */
   background: #fafbfc;
   min-height: 260px;
   scrollbar-color: #0068b5 #e0e7ef;
@@ -117,7 +118,7 @@ section > div::after {
   top: 0; left: 0; right: 0; bottom: 0;
   background: #2563a9cc; /* Intel blue, semi-transparent */
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.5s; /* Slower overlay transition */
   z-index: 1;
   pointer-events: none;
 }
@@ -141,7 +142,7 @@ section p {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transition: max-height 0.4s, opacity 0.4s;
+  transition: max-height 0.7s, opacity 0.7s; /* Slower text transition */
   /* Place paragraph above overlay */
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
